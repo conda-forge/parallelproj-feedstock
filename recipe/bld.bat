@@ -4,7 +4,16 @@ setlocal EnableDelayedExpansion
 mkdir build
 cd build
 
-if %cuda_compiler_version%=="None" (
+echo "####################################################"
+echo "####################################################"
+echo "####### cuda_compiler_version#######################"
+echo "%cuda_compiler_version%"
+echo "####################################################"
+echo "####################################################"
+echo "####################################################"
+
+
+if "%cuda_compiler_version%"=="None" (
     set EXTRA_CMAKE_ARGS="-DSKIP_CUDA_LIB=TRUE"
 ) else (
     set EXTRA_CMAKE_ARGS="-DCMAKE_CUDA_ARCHITECTURES=all"
