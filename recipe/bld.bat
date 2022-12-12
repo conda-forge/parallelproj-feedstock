@@ -38,13 +38,13 @@ echo "####################################################"
 echo "####################################################"
 echo "####################################################"
 
-python -c "import os;print(';'.join(list(dict.fromkeys(os.environ['PATH'].split(';')))))" > sanitized_path.txt
-set /p PATH=<sanitized_path.txt
+python -c "import os;print(';'.join(list(dict.fromkeys(os.environ['PATH'].split(';')))))">sanitized_path.txt
+::set /p PATH=<sanitized_path.txt
 
 echo "####################################################"
 echo "####################################################"
 echo "#### SANITIZED PATH ################################"
-echo %PATH%
+type sanitized_path.txt
 echo "####################################################"
 echo "####################################################"
 echo "####################################################"
