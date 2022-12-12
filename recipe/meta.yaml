@@ -26,10 +26,10 @@ requirements:
     - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
     - cmake >=3.23
     - ninja
+    - python
   host:
     - libgomp      # [linux]
     - llvm-openmp  # [osx]
-    - python
 test:
   commands:
     - test -f $PREFIX/lib/libparallelproj_c$SHLIB_EXT  # [unix]
