@@ -20,4 +20,9 @@ cmake -G Ninja \
     ${SRC_DIR}
 
 cmake --build . --target install --verbose 
-ctest -VV
+
+if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} -ne 1 ]]; then
+    ctest -VV
+else
+  echo "Cross-compiling. Skipping ctest."
+fi
