@@ -4,16 +4,21 @@ setlocal EnableDelayedExpansion
 mkdir build
 cd build
 
-:: set EXTRA_CMAKE_ARGS="-DCMAKE_CUDA_ARCHITECTURES=all"
+if %cuda_compiler_version%=="None" (
+    set EXTRA_CMAKE_ARGS="-DSKIP_CUDA_LIB=TRUE"
+) else (
+    set EXTRA_CMAKE_ARGS="-DCMAKE_CUDA_ARCHITECTURES=all"
+)
+
 echo "####################################################"
 echo "####################################################"
-echo "####### CUDA COMPILER VERSION ######################"
-echo %cuda_compiler_version%
+echo "####### CMAKE EXTRA ARGS ###########################"
+echo %EXTRA_CMAKE_ARGS%
 echo "####################################################"
 echo "####################################################"
 echo "####################################################"
 
-set EXTRA_CMAKE_ARGS="-DSKIP_CUDA_LIB=TRUE"
+
 
 :: Configure using the CMakeFiles
 cmake -G Ninja ^
