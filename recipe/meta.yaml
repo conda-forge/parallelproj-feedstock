@@ -29,6 +29,7 @@ requirements:
   host:
     - libgomp      # [linux]
     - llvm-openmp  # [osx]
+    - python
 test:
   commands:
     - test -f $PREFIX/lib/libparallelproj_c$SHLIB_EXT  # [unix]
