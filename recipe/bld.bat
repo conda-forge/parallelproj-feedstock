@@ -39,7 +39,7 @@ echo "####################################################"
 echo "####################################################"
 
 python -c "import os;print(';'.join(list(dict.fromkeys(os.environ['PATH'].split(';')))))">sanitized_path.txt
-::set /p PATH=<sanitized_path.txt
+for /f "delims=" %%x in (sanitized_path.txt) do set PATH=%%x
 
 echo "####################################################"
 echo "####################################################"
