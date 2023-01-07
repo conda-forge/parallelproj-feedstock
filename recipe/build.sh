@@ -1,6 +1,22 @@
 #!/bin/bash
 set -ex
 
+#######################
+# patch nvcc according to jaimergp
+cat <<"EOF" > $BUILD_PREFIX/bin/nvcc
+#!/bin/bash
+
+for arg in "${@}" ; do
+  case ${arg} in -ccbin | --compiler-bindir)
+    # If -ccbin argument is already provided, don't add an additional one.
+    exec "${CUDA_HOME}/bin/nvcc" "${@}"
+  esac
+done
+exec "${CUDA_HOME}/bin/nvcc" -ccbin "${CXX}" "${@}"
+EOF
+#######################
+
+
 mkdir build
 cd build
 
