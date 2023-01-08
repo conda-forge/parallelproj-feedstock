@@ -6,8 +6,6 @@ cd build
 
 if [[ ${cuda_compiler_version:-None} != "None" ]]; then
   EXTRA_CMAKE_ARGS="-DCMAKE_CUDA_ARCHITECTURES=all"
-else
-  EXTRA_CMAKE_ARGS="-DSKIP_CUDA_LIB=TRUE"
 fi
 
 cmake -G Ninja \

@@ -11,10 +11,7 @@ python -c "import os;print(';'.join(list(dict.fromkeys(os.environ['PATH'].split(
 for /f "delims=" %%x in (sanitized_path.txt) do set PATH=%%x
 
 :: Configure using the CMakeFiles
-
-if "%cuda_compiler_version%"=="None" (
-    set EXTRA_CMAKE_ARGS="-DSKIP_CUDA_LIB=TRUE"
-) else (
+if NOT "%cuda_compiler_version%"=="None" (
     set EXTRA_CMAKE_ARGS="-DCMAKE_CUDA_ARCHITECTURES=all"
 )
 
