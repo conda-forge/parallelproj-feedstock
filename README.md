@@ -1,11 +1,11 @@
-About parallelproj
-==================
+About parallelproj-feedstock
+============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/parallelproj-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/gschramm/parallelproj
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/parallelproj-feedstock/blob/main/LICENSE.txt)
 
 Summary: parallelized TOF PET projectors
 
