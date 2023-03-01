@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
 {% set version = "1.2.14" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -30,6 +30,8 @@ requirements:
   host:
     - libgomp      # [linux]
     - llvm-openmp  # [osx]
+  run:
+    - __cuda  # [cuda_compiler_version != "None"]
 test:
   commands:
     - test -f $PREFIX/lib/libparallelproj_c$SHLIB_EXT  # [unix]
