@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
 {% set version = "1.2.14" %}
-{% set build_number = 3 %}
+{% set build_number = 4 %}
 
 package:
   name: {{ name|lower }}
@@ -13,8 +13,8 @@ source:
 build:
   run_exports:
     - {{ pin_subpackage( name|lower, max_pin='x.x') }}
-    - {{ name }}*cuda*  # [cuda_compiler_version != "None"]
-    - {{ name }}*cpu*  # [cuda_compiler_version == "None"]
+    - {{ name }} * *cuda*  # [cuda_compiler_version != "None"]
+    - {{ name }} * *cpu*  # [cuda_compiler_version == "None"]
   number: {{ build_number }}
   ignore_run_exports:
     - cudatoolkit
