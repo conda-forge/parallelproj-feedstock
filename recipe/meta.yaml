@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
 {% set version = "1.2.16" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -11,41 +11,45 @@ source:
   sha256: a1a542ae8fb4a503e8b3f738db01b41bc58fc323f94ac902f7d4159c80bd7b31
 
 build:
-  run_exports:
-    - {{ pin_subpackage( name|lower, max_pin='x.x') }}
-    - {{ name }} * *cuda*  # [cuda_compiler_version != "None"]
-    - {{ name }} * *cpu*  # [cuda_compiler_version == "None"]
   number: {{ build_number }}
-  ignore_run_exports:
-    - cudatoolkit
-  string: cpuh{{ PKG_HASH }}_{{ build_number }}  # [cuda_compiler_version == "None"]
-  string: cuda{{ cuda_compiler_version|string }}h{{ PKG_HASH }}_{{ build_number }}  # [cuda_compiler_version != "None"]
 
-
-requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}  # [cuda_compiler_version != "None"]
-    - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
-    - cmake >=3.23
-    - ninja
-    - python
-  host:
-    - libgomp      # [linux]
-    - llvm-openmp  # [osx]
-  run:
-    - __cuda  # [cuda_compiler_version != "None"]
-test:
-  commands:
-    - test -f $PREFIX/lib/libparallelproj_c$SHLIB_EXT  # [unix]
-    - test -f $PREFIX/include/parallelproj_c.h  # [unix]
-    - test -f $PREFIX/lib/cmake/parallelproj/parallelprojConfig.cmake  # [unix]
-    - test -f $PREFIX/lib/libparallelproj_cuda$SHLIB_EXT  # [linux and cuda_compiler_version != "None"]
-    - test -f $PREFIX/include/parallelproj_cuda.h  # [linux and cuda_compiler_version != "None"]
-    - if not exist %LIBRARY_LIB%\parallelproj_c.lib exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\parallelproj_c.dll exit 1  # [win]
-    - if not exist %LIBRARY_INC%\parallelproj_c.h exit 1  # [win]
-    - if not exist %LIBRARY_LIB%\cmake\parallelproj\parallelprojConfig.cmake exit 1  # [win]
+outputs:
+  - name: parallelproj
+    script: build.sh  # [unix]
+    script: bld.bat  # [win]
+    build:
+      run_exports:
+        - {{ pin_subpackage( name|lower, max_pin='x.x') }}
+        - {{ name }} * *cuda*  # [cuda_compiler_version != "None"]
+        - {{ name }} * *cpu*  # [cuda_compiler_version == "None"]
+      ignore_run_exports:
+        - cudatoolkit
+      string: cpuh{{ PKG_HASH }}_{{ build_number }}  # [cuda_compiler_version == "None"]
+      string: cuda{{ cuda_compiler_version|string }}h{{ PKG_HASH }}_{{ build_number }}  # [cuda_compiler_version != "None"]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}  # [cuda_compiler_version != "None"]
+        - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
+        - cmake >=3.23
+        - ninja
+        - python
+      host:
+        - libgomp      # [linux]
+        - llvm-openmp  # [osx]
+      run:
+        - __cuda  # [cuda_compiler_version != "None"]
+    test:
+      commands:
+        - test -f $PREFIX/lib/libparallelproj_c$SHLIB_EXT  # [unix]
+        - test -f $PREFIX/include/parallelproj_c.h  # [unix]
+        - test -f $PREFIX/lib/cmake/parallelproj/parallelprojConfig.cmake  # [unix]
+        - test -f $PREFIX/lib/libparallelproj_cuda$SHLIB_EXT  # [linux and cuda_compiler_version != "None"]
+        - test -f $PREFIX/include/parallelproj_cuda.h  # [linux and cuda_compiler_version != "None"]
+        - if not exist %LIBRARY_LIB%\parallelproj_c.lib exit 1  # [win]
+        - if not exist %LIBRARY_BIN%\parallelproj_c.dll exit 1  # [win]
+        - if not exist %LIBRARY_INC%\parallelproj_c.h exit 1  # [win]
+        - if not exist %LIBRARY_LIB%\cmake\parallelproj\parallelprojConfig.cmake exit 1  # [win]
 
 about:
   home: https://github.com/gschramm/parallelproj
