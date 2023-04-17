@@ -15,8 +15,8 @@ build:
 
 outputs:
   - name: parallelproj
-    script: build.sh  # [unix]
-    script: bld.bat  # [win]
+    script: build-parallelproj.sh  # [unix]
+    script: bld-parallelproj.bat  # [win]
     build:
       run_exports:
         - {{ pin_subpackage( name|lower, max_pin='x.x') }}
