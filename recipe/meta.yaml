@@ -57,8 +57,7 @@ outputs:
     script: build-python.sh  # [unix]
     script: bld-python.bat  # [win]
     build:
-        - python
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+      noarch: python
       script_env:
         - SETUPTOOLS_SCM_PRETEND_VERSION={{ PKG_VERSION }}
     requirements:
