@@ -80,7 +80,7 @@ outputs:
         - tests/parallelprojpy/*
       commands:
         - pip check
-        - pytest test -vs
+        - pytest tests/parallelprojpy -v
 
 about:
   home: https://github.com/gschramm/parallelproj
