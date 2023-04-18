@@ -1,5 +1,5 @@
 {% set name = "parallelproj" %}
-{% set version = "1.3.1" %}
+{% set version = "1.3.2" %}
 {% set build_number = 0 %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 944554b4d196ebfa9238219dadbba11574a627e16afe1a419251dd5325809fa8
+  sha256: c72a8f19fc657a1b10094ad9cfd539f31d1f51a9bcce50e7df53df06feaa2a02
 
 build:
   number: {{ build_number }}
