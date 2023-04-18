@@ -70,6 +70,17 @@ outputs:
       run:
         - {{ pin_subpackage('parallelproj') }}
         - numpy >1.12
+    test:
+      requires:
+        - pip
+        - pytest
+      imports:
+        - parallelprojpy
+      source_files:
+        - test/*
+      commands:
+        - pip check
+        - pytest test -vs
 
 about:
   home: https://github.com/gschramm/parallelproj
