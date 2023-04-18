@@ -77,10 +77,10 @@ outputs:
       imports:
         - parallelprojpy
       source_files:
-        - tests/parallelprojpy/*
+        - test/parallelprojpy/*
       commands:
         - pip check
-        - pytest tests/parallelprojpy -v
+        - pytest test/parallelprojpy -v
 
 about:
   home: https://github.com/gschramm/parallelproj
