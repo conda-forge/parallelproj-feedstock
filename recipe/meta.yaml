@@ -77,7 +77,7 @@ outputs:
       imports:
         - parallelprojpy
       source_files:
-        - test/*
+        - tests/parallelprojpy/*
       commands:
         - pip check
         - pytest test -vs
