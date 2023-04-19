@@ -61,6 +61,9 @@ outputs:
       script_env:
         - SETUPTOOLS_SCM_PRETEND_VERSION={{ PKG_VERSION }}
     requirements:
+      build:
+        - python  # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - pip
         - python >=3.6,<4
