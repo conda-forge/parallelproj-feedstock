@@ -66,7 +66,7 @@ outputs:
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - pip
-        - python >=3.6,<4
+        - python >=3.9,<4
         - setuptools >=45
         - setuptools_scm >=7.0
         - setuptools_scm_git_archive
