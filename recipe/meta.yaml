@@ -69,8 +69,8 @@ outputs:
         - setuptools >=45
         - setuptools_scm >=7.0
         - setuptools_scm_git_archive
-      run:
         - {{ pin_subpackage('parallelproj') }}
+      run:
         - numpy >1.12
     test:
       requires:
