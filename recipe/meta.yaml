@@ -1,5 +1,5 @@
 {% set name = "parallelproj" %}
-{% set version = "1.3.3" %}
+{% set version = "1.3.4" %}
 {% set build_number = 0 %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 9e88bdee8b49b0c89f289c9a09189b262a10ec962b7074441f1d297d70bdd976
+  sha256: e71089d662ed8a4f9cd7fa86a40afadb1db494d2ea07ae7447fc79ee98b3e93a
 
 build:
   number: {{ build_number }}
@@ -42,7 +42,7 @@ outputs:
       run:
         - __cuda  # [cuda_compiler_version != "None"]
       run_constrained:
-        - parallelproj >=1.3.3  # parallelproj output renamed to libparallelproj
+        - parallelproj >=1.3.4  # parallelproj output renamed to libparallelproj
     test:
       commands:
         - test -f $PREFIX/lib/libparallelproj_c$SHLIB_EXT  # [unix]
@@ -55,7 +55,7 @@ outputs:
         - if not exist %LIBRARY_INC%\parallelproj_c.h exit 1  # [win]
         - if not exist %LIBRARY_LIB%\cmake\parallelproj\parallelprojConfig.cmake exit 1  # [win]
 
-  - name: parallelprojpy
+  - name: parallelproj
     script: build-python.sh  # [unix]
     script: bld-python.bat  # [win]
     build:
@@ -79,12 +79,12 @@ outputs:
         - pip
         - pytest
       imports:
-        - parallelprojpy
+        - parallelproj
       source_files:
-        - test/parallelprojpy/*
+        - test/parallelproj/*
       commands:
         - pip check
-        - pytest test/parallelprojpy -v
+        - pytest test/parallelproj -vs
 
 about:
   home: https://github.com/gschramm/parallelproj
