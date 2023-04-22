@@ -3,7 +3,7 @@
 {% set build_number = 0 %}
 
 package:
-  name: libparallelproj
+  name: parallelproj-split
   version: {{ version }}
 
 source:
@@ -67,7 +67,7 @@ outputs:
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - pip
-        - python >=3.6,<4
+        - python
         - setuptools >=45
         - setuptools_scm >=7.0
         - setuptools_scm_git_archive
@@ -95,3 +95,4 @@ about:
 extra:
   recipe-maintainers:
     - gschramm
+  feedstock-name: parallelproj
