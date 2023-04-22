@@ -137,8 +137,8 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libparallelproj-green.svg)](https://anaconda.org/conda-forge/libparallelproj) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libparallelproj.svg)](https://anaconda.org/conda-forge/libparallelproj) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libparallelproj.svg)](https://anaconda.org/conda-forge/libparallelproj) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libparallelproj.svg)](https://anaconda.org/conda-forge/libparallelproj) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-parallelproj-green.svg)](https://anaconda.org/conda-forge/parallelproj) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/parallelproj.svg)](https://anaconda.org/conda-forge/parallelproj) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/parallelproj.svg)](https://anaconda.org/conda-forge/parallelproj) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/parallelproj.svg)](https://anaconda.org/conda-forge/parallelproj) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-parallelprojpy-green.svg)](https://anaconda.org/conda-forge/parallelprojpy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/parallelprojpy.svg)](https://anaconda.org/conda-forge/parallelprojpy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/parallelprojpy.svg)](https://anaconda.org/conda-forge/parallelprojpy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/parallelprojpy.svg)](https://anaconda.org/conda-forge/parallelprojpy) |
 
 Installing parallelproj
 =======================
@@ -150,41 +150,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `parallelproj, parallelprojpy` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libparallelproj, parallelproj` can be installed with `conda`:
 
 ```
-conda install parallelproj parallelprojpy
-```
-
-or with `mamba`:
-
-```
-mamba install parallelproj parallelprojpy
-```
-
-It is possible to list all of the versions of `parallelproj` available on your platform with `conda`:
-
-```
-conda search parallelproj --channel conda-forge
+conda install libparallelproj parallelproj
 ```
 
 or with `mamba`:
 
 ```
-mamba search parallelproj --channel conda-forge
+mamba install libparallelproj parallelproj
+```
+
+It is possible to list all of the versions of `libparallelproj` available on your platform with `conda`:
+
+```
+conda search libparallelproj --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search libparallelproj --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search parallelproj --channel conda-forge
+mamba repoquery search libparallelproj --channel conda-forge
 
-# List packages depending on `parallelproj`:
-mamba repoquery whoneeds parallelproj --channel conda-forge
+# List packages depending on `libparallelproj`:
+mamba repoquery whoneeds libparallelproj --channel conda-forge
 
-# List dependencies of `parallelproj`:
-mamba repoquery depends parallelproj --channel conda-forge
+# List dependencies of `libparallelproj`:
+mamba repoquery depends libparallelproj --channel conda-forge
 ```
 
 
