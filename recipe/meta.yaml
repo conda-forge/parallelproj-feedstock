@@ -1,6 +1,10 @@
 {% set name = "parallelproj" %}
 {% set version = "1.3.4" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
+
+{% if cuda_compiler_version != "None" %}
+{% set build_number = build_number + 200 %}
+{% endif %}
 
 package:
   name: parallelproj-split
@@ -21,11 +25,11 @@ outputs:
       run_exports:
         - {{ pin_subpackage('libparallelproj') }}
         - libparallelproj =*=cuda*  # [cuda_compiler_version != "None"]
-        - libparallelproj =*=h*  # [cuda_compiler_version == "None"]
+        - libparallelproj =*=cpu*  # [cuda_compiler_version == "None"]
       ignore_run_exports:
         - cudatoolkit
-      string: cpuh{{ PKG_HASH }}_{{ build_number }}  # [cuda_compiler_version == "None"]
-      string: cuda{{ cuda_compiler_version|string }}h{{ PKG_HASH }}_{{ build_number }}  # [cuda_compiler_version != "None"]
+      string: cuda{{ cuda_compiler_version | replace('.', '') }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
+      string: cpu_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
     
     
     requirements:
@@ -59,6 +63,8 @@ outputs:
     script: build-python.sh  # [unix]
     script: bld-python.bat  # [win]
     build:
+      string: cuda{{ cuda_compiler_version | replace('.', '') }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
+      string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
       script_env:
         - SETUPTOOLS_SCM_PRETEND_VERSION={{ PKG_VERSION }}
     requirements:
