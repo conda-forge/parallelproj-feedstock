@@ -63,8 +63,7 @@ outputs:
     script: build-python.sh  # [unix]
     script: bld-python.bat  # [win]
     build:
-      string: cuda{{ cuda_compiler_version | replace('.', '') }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
-      string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
+      noarch: python  
       script_env:
         - SETUPTOOLS_SCM_PRETEND_VERSION={{ PKG_VERSION }}
     requirements:
@@ -73,7 +72,6 @@ outputs:
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - pip
-        - python
         - setuptools >=45
         - setuptools_scm >=7.0
         - setuptools_scm_git_archive
