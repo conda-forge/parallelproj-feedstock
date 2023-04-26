@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
-{% set version = "1.3.5" %}
-{% set build_number = 2 %}
+{% set version = "1.3.6" %}
+{% set build_number = 0 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 6cf8df5738dbc0740c9370cc7b39598bc2681f9d939be1b0b292f8a2c30fa51b
+  sha256: e139aee64314038e8ddc7c963d9a7ca5a6186e493d2c768e683aab0d8f496c3f
 
 build:
   number: {{ build_number }}
@@ -63,7 +63,8 @@ outputs:
     script: build-python.sh  # [unix]
     script: bld-python.bat  # [win]
     build:
-      noarch: python  
+      skip: true  # [not linux64]
+      noarch: python
       script_env:
         - SETUPTOOLS_SCM_PRETEND_VERSION={{ PKG_VERSION }}
     requirements:
