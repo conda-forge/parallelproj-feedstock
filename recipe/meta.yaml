@@ -63,6 +63,7 @@ outputs:
     script: build-python.sh  # [unix]
     script: bld-python.bat  # [win]
     build:
+      skip: true  # [not linux64 or cuda_compiler_version != "None"]
       noarch: python
       script_env:
         - SETUPTOOLS_SCM_PRETEND_VERSION={{ PKG_VERSION }}
