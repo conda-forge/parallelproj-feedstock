@@ -79,7 +79,7 @@ outputs:
       run:
         - {{ pin_subpackage('libparallelproj') }}
         - numpy >1.12
-        - matplotlib >3.0
+        - matplotlib-base >3.0
     test:
       requires:
         - pip
