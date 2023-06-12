@@ -79,10 +79,12 @@ outputs:
       run:
         - {{ pin_subpackage('libparallelproj') }}
         - numpy >1.12
+        - matplotlib >3.0
     test:
       requires:
         - pip
         - pytest
+        - scipy >1.0
       imports:
         - parallelproj
       source_files:
