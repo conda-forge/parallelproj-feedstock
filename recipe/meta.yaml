@@ -78,13 +78,15 @@ outputs:
         - setuptools_scm_git_archive
       run:
         - {{ pin_subpackage('libparallelproj') }}
-        - numpy >1.12
-        - matplotlib-base >3.0
+        - python >=3.8
+        - numpy >=1.22
+        - matplotlib-base >=3.0
+        - array-api-compat
     test:
       requires:
         - pip
         - pytest
-        - scipy >1.0
+        - scipy >=1.0
       imports:
         - parallelproj
       source_files:
