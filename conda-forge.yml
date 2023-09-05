@@ -12,3 +12,7 @@ provider:
   linux_aarch64: default
   linux_ppc64le: default
 test: native_and_emulated
+azure:
+  # toggle for freeing up some extra space on the default Azure Pipelines
+  # linux image before running the Docker container for building
+  free_disk_space: True
