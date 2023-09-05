@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
-{% set version = "1.3.5" %}
-{% set build_number = 2 %}
+{% set version = "1.5.0" %}
+{% set build_number = 1 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 6cf8df5738dbc0740c9370cc7b39598bc2681f9d939be1b0b292f8a2c30fa51b
+  sha256: 761ad311f80f31a673dae9390bc22ed27d0bf0cec7d94117975bcc12441b3090
 
 build:
   number: {{ build_number }}
@@ -63,7 +63,8 @@ outputs:
     script: build-python.sh  # [unix]
     script: bld-python.bat  # [win]
     build:
-      noarch: python  
+      skip: true  # [not linux64]
+      noarch: python
       script_env:
         - SETUPTOOLS_SCM_PRETEND_VERSION={{ PKG_VERSION }}
     requirements:
@@ -77,11 +78,15 @@ outputs:
         - setuptools_scm_git_archive
       run:
         - {{ pin_subpackage('libparallelproj') }}
-        - numpy >1.12
+        - python >=3.8
+        - numpy >=1.22
+        - matplotlib-base >=3.0
+        - array-api-compat
     test:
       requires:
         - pip
         - pytest
+        - scipy >=1.0
       imports:
         - parallelproj
       source_files:
