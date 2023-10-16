@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
-{% set version = "1.5.0" %}
-{% set build_number = 3 %}
+{% set version = "1.6.0" %}
+{% set build_number = 0 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 761ad311f80f31a673dae9390bc22ed27d0bf0cec7d94117975bcc12441b3090
+  sha256: 6f0c2547a265a0e71ead7fe9cb1b4e5ed9d89801a446d84e2a977d83938f6363
 
 build:
   number: {{ build_number }}
