@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
 {% set version = "1.6.1" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -82,11 +82,11 @@ outputs:
         - numpy >=1.22
         - matplotlib-base >=3.0
         - array-api-compat
+        - scipy >=1.0
     test:
       requires:
         - pip
         - pytest
-        - scipy >=1.0
       imports:
         - parallelproj
       source_files:
