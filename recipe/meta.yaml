@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
 {% set version = "1.7.1" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -78,7 +78,7 @@ outputs:
         - setuptools_scm_git_archive
       run:
         - {{ pin_subpackage('libparallelproj') }}
-        - python >=3.8
+        - python >=3.9
         - numpy >=1.22
         - matplotlib-base >=3.0
         - array-api-compat
