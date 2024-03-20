@@ -1,5 +1,5 @@
 {% set name = "parallelproj" %}
-{% set version = "1.7.3" %}
+{% set version = "1.8.0" %}
 {% set build_number = 0 %}
 
 {% if cuda_compiler_version != "None" %}
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 7b79a52e39334e3231428525e8e640d42a4453c1f1c32b576de8cf60501c4f4d
+  sha256: d3ba5ea465da2e9dfb4aaf16bcac3949d98482f29029e92a6d6a83bf5451e6ff
 
 build:
   number: {{ build_number }}
@@ -73,16 +73,15 @@ outputs:
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - pip
-        - setuptools >=45
-        - setuptools_scm >=7.0
-        - setuptools_scm_git_archive
+        - pdm-backend
       run:
         - {{ pin_subpackage('libparallelproj') }}
         - python >=3.9
-        - numpy >=1.22
-        - matplotlib-base >=3.0
-        - array-api-compat
-        - scipy >=1.0
+        - numpy ~=1.22
+        - matplotlib-base ~=3.0
+        - array-api-compat <1.5
+        - array-api-strict ~=1.0
+        - scipy ~=1.0
     test:
       requires:
         - pip
@@ -90,10 +89,10 @@ outputs:
       imports:
         - parallelproj
       source_files:
-        - test/parallelproj/*
+        - tests/*
       commands:
         - pip check
-        - pytest test/parallelproj -vs
+        - pytest tests -vs
 
 about:
   home: https://github.com/gschramm/parallelproj
