@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
 {% set version = "1.8.0" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: d3ba5ea465da2e9dfb4aaf16bcac3949d98482f29029e92a6d6a83bf5451e6ff
+  sha256: 3fc11f76ee82e3f56b495dcac1936a40b0526a7e4755f76bd41ea792fd94b701
 
 build:
   number: {{ build_number }}
@@ -23,7 +23,7 @@ outputs:
     script: bld-parallelproj.bat  # [win]
     build:
       run_exports:
-        - {{ pin_subpackage('libparallelproj') }}
+        - {{ pin_subpackage('libparallelproj', max_pin='x.x') }}
         - libparallelproj =*=cuda*  # [cuda_compiler_version != "None"]
         - libparallelproj =*=cpu*  # [cuda_compiler_version == "None"]
       ignore_run_exports:
