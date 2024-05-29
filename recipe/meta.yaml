@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
 {% set version = "1.8.0" %}
-{% set build_number = 1 %}
+{% set build_number = 2 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -43,8 +43,10 @@ outputs:
       host:
         - libgomp      # [linux]
         - llvm-openmp  # [osx]
+        - cuda-version {{ cuda_compiler_version }}  # [(cuda_compiler_version or "None") != "None"]
       run:
         - __cuda  # [cuda_compiler_version != "None"]
+        - cuda-version {{ cuda_compiler_version }}  # [(cuda_compiler_version or "None") != "None"]
       run_constrained:
         - parallelproj >=1.3.4  # parallelproj output renamed to libparallelproj
     test:
