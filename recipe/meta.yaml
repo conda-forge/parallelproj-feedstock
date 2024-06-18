@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
-{% set version = "1.8.0" %}
-{% set build_number = 1 %}
+{% set version = "1.9.0" %}
+{% set build_number = 0 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 3fc11f76ee82e3f56b495dcac1936a40b0526a7e4755f76bd41ea792fd94b701
+  sha256: 63899c606baed3b4b2eaa9ffc32adc705002d98ad02a2233c90781e904cb8631
 
 build:
   number: {{ build_number }}
@@ -77,9 +77,9 @@ outputs:
       run:
         - {{ pin_subpackage('libparallelproj') }}
         - python >=3.9
-        - numpy ~=1.22
-        - matplotlib-base ~=3.0
-        - array-api-compat <1.5
+        - numpy ~=1.23
+        - matplotlib-base ~=3.8
+        - array-api-compat ~=1.7
         - array-api-strict ~=1.0
         - scipy ~=1.0
     test:
