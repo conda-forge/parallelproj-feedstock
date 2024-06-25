@@ -1,6 +1,6 @@
 {% set name = "parallelproj" %}
 {% set version = "1.9.1" %}
-{% set build_number = 1 %}
+{% set build_number = 2 %}
 
 {% if cuda_compiler_version != "None" %}
 {% set build_number = build_number + 200 %}
@@ -27,7 +27,7 @@ outputs:
         - libparallelproj =*=cuda*  # [cuda_compiler_version != "None"]
         - libparallelproj =*=cpu*  # [cuda_compiler_version == "None"]
       ignore_run_exports:
-        - cudatoolkit  # [cuda_compiler_version == "11.*"]
+        - cudatoolkit  # [(cuda_compiler_version or "None").startswith("11")]
       string: cuda{{ cuda_compiler_version | replace('.', '') }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
       string: cpu_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
 
