@@ -80,7 +80,7 @@ outputs:
       run:
         - {{ pin_subpackage('libparallelproj') }}
         - python >=3.9
-        - numpy ~=1.23
+        - numpy >=1.23
         - matplotlib-base ~=3.8
         - array-api-compat ~=1.7
         - array-api-strict ~=1.0
