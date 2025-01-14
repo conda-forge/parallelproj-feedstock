@@ -75,11 +75,12 @@ outputs:
         - python  # [build_platform != target_platform]
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
+        - python {{ python_min }}
         - pip
         - pdm-backend
       run:
         - {{ pin_subpackage('libparallelproj') }}
-        - python >=3.9
+        - python >={{ python_min }}
         - numpy >=1.23
         - matplotlib-base ~=3.8
         - array-api-compat ~=1.7
@@ -87,6 +88,7 @@ outputs:
         - scipy ~=1.0
     test:
       requires:
+        - python {{ python_min }}
         - pip
         - pytest
       imports:
