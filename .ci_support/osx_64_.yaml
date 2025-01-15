@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '16'
+- '18'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -19,8 +19,10 @@ cuda_compiler:
 cuda_compiler_version:
 - None
 llvm_openmp:
-- '16'
+- '18'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+proj:
+- '9.5'
 target_platform:
 - osx-64
