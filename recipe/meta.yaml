@@ -90,7 +90,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - pytest
-        - array-api-strict ~=1.0
+        - array-api-strict ~=2.0
       imports:
         - parallelproj
       source_files:
