@@ -11,7 +11,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/gschramm/parallelproj/archive/refs/tags/v{{ version }}.tar.gz
+  url: https://github.com/gschramm/parallelproj/archive/v{{ version }}.tar.gz
   sha256: 0e51f5203802e37f5af85452128914d55cb4096d6f4b8b7d738173a4ed9a9efa
 
 build:
