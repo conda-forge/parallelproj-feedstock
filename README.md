@@ -3,117 +3,26 @@ About parallelproj-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/parallelproj-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/gschramm/parallelproj
+Home: https://github.com/KUL-recon-lab/parallelproj
 
-Package license: MIT
+Package license: Apache-2.0
 
-Summary: parallelized TOF PET projectors
+Summary: Python tools for PET projection and reconstruction workflows.
+
+Development: https://github.com/KUL-recon-lab/parallelproj
+
+Documentation: https://parallelproj.readthedocs.io/
 
 Current build status
 ====================
 
 
-<table>
-    
-  <tr>
-    <td>Azure</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <details>
-        <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main">
-          </a>
-        </summary>
-        <table>
-          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
-          <tbody><tr>
-              <td>linux_64_cuda_compiler_version12.9</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.9" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version13.0</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version13.0" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_versionNone</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNone" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_c_stdlib_version2.17cuda_compiler_version12.9</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_c_stdlib_version2.17cuda_compiler_version12.9" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_c_stdlib_version2.17cuda_compiler_versionNone</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_c_stdlib_version2.17cuda_compiler_versionNone" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_c_stdlib_version2.28cuda_compiler_version13.0</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_c_stdlib_version2.28cuda_compiler_version13.0" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version12.9</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=win&configuration=win%20win_64_cuda_compiler_version12.9" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_version13.0</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=win&configuration=win%20win_64_cuda_compiler_version13.0" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_cuda_compiler_versionNone</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18288&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/parallelproj-feedstock?branchName=main&jobName=win&configuration=win%20win_64_cuda_compiler_versionNone" alt="variant">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
+      <a href="https://github.com/conda-forge/parallelproj-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/parallelproj-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
     </td>
   </tr>
 </table>
@@ -123,7 +32,6 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libparallelproj-green.svg)](https://anaconda.org/conda-forge/libparallelproj) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libparallelproj.svg)](https://anaconda.org/conda-forge/libparallelproj) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libparallelproj.svg)](https://anaconda.org/conda-forge/libparallelproj) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libparallelproj.svg)](https://anaconda.org/conda-forge/libparallelproj) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-parallelproj-green.svg)](https://anaconda.org/conda-forge/parallelproj) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/parallelproj.svg)](https://anaconda.org/conda-forge/parallelproj) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/parallelproj.svg)](https://anaconda.org/conda-forge/parallelproj) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/parallelproj.svg)](https://anaconda.org/conda-forge/parallelproj) |
 
 Installing parallelproj
@@ -136,41 +44,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `libparallelproj, parallelproj` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `parallelproj` can be installed with `conda`:
 
 ```
-conda install libparallelproj parallelproj
-```
-
-or with `mamba`:
-
-```
-mamba install libparallelproj parallelproj
-```
-
-It is possible to list all of the versions of `libparallelproj` available on your platform with `conda`:
-
-```
-conda search libparallelproj --channel conda-forge
+conda install parallelproj
 ```
 
 or with `mamba`:
 
 ```
-mamba search libparallelproj --channel conda-forge
+mamba install parallelproj
+```
+
+It is possible to list all of the versions of `parallelproj` available on your platform with `conda`:
+
+```
+conda search parallelproj --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search parallelproj --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search libparallelproj --channel conda-forge
+mamba repoquery search parallelproj --channel conda-forge
 
-# List packages depending on `libparallelproj`:
-mamba repoquery whoneeds libparallelproj --channel conda-forge
+# List packages depending on `parallelproj`:
+mamba repoquery whoneeds parallelproj --channel conda-forge
 
-# List dependencies of `libparallelproj`:
-mamba repoquery depends libparallelproj --channel conda-forge
+# List dependencies of `parallelproj`:
+mamba repoquery depends parallelproj --channel conda-forge
 ```
 
 
@@ -195,12 +103,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -227,7 +135,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/parallelproj-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:

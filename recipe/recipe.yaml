@@ -1,0 +1,59 @@
+context:
+  version: "2.0.0"
+  python_min: "3.12"
+
+package:
+  name: parallelproj
+  version: ${{ version }}
+
+source:
+  url: https://github.com/KUL-recon-lab/parallelproj/archive/v${{ version }}.tar.gz
+  sha256: 8b62e7acc3dd2016029a264d86a5fe3265ddd663840261cd50ace4af92ab174e
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - hatchling
+  run:
+    - python >=${{ python_min }}
+    # binary backend; it pulls in libparallelproj via its run-exports
+    - parallelproj-core >=2.0.7
+    - numpy >=1.23
+    - scipy >=1.15
+    - array-api-compat >=1.7
+    - matplotlib-base
+
+tests:
+  - python:
+      imports:
+        - parallelproj
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - script:
+      - pytest tests -vs
+    requirements:
+      run:
+        - python ${{ python_min }}.*
+        - pytest >=8
+        - array-api-strict
+    files:
+      source:
+        - tests/
+
+about:
+  homepage: https://github.com/KUL-recon-lab/parallelproj
+  repository: https://github.com/KUL-recon-lab/parallelproj
+  documentation: https://parallelproj.readthedocs.io/
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: Python tools for PET projection and reconstruction workflows.
+
+extra:
+  recipe-maintainers:
+    - gschramm
