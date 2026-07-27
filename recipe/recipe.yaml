@@ -1,5 +1,5 @@
 context:
-  version: "2.0.0"
+  version: "2.0.1"
   python_min: "3.12"
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/KUL-recon-lab/parallelproj/archive/v${{ version }}.tar.gz
-  sha256: 8b62e7acc3dd2016029a264d86a5fe3265ddd663840261cd50ace4af92ab174e
+  sha256: 90e8d6132ec1f31a5607d68900e709a8fca87d4e6ee448282b20056779b3517c
 
 build:
   number: 0
